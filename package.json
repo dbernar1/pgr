@@ -1,0 +1,11 @@
+{
+  "name": "pgr",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Dan Bernardic <dan.bernardic@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.87.0",
+    "underscore": "^1.9.1"
+  }
+}
