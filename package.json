@@ -1,11 +1,26 @@
 {
   "name": "pgr",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "api.js",
   "author": "Dan Bernardic <dan.bernardic@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon api.js",
+    "db:make-mig": "NODE_ENV=production knex migrate:make",
+    "db:migrate": "NODE_ENV=production knex migrate:latest"
+  },
   "dependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "knex": "^0.15.0",
+    "moment": "^2.22.2",
+    "morgan": "^1.9.0",
     "request": "^2.87.0",
+    "sqlite3": "^4.0.1",
     "underscore": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.1"
   }
 }

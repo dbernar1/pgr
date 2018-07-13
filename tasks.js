@@ -3,6 +3,7 @@ module.exports = [ {
 	quest: 'Catch 3 Grass-, Water-, or Fire-type Pokémon',
 	rewardType: 'encounter',
 	reward: 'Pikachu',
+	hint: 'Catch 3 G/W/F'
 }, {
 	actionType: 'catch',
 	quest: 'Catch 5 Pokémon with Weather Boost',
@@ -13,51 +14,61 @@ module.exports = [ {
 	quest: 'Catch a Dragon-type Pokémon',
 	rewardType: 'encounter',
 	reward: 'Dratini',
+	hint: 'Catch Drag',
 }, {
 	actionType: 'catch',
 	quest: 'Catch 10 Pokémon',
 	rewardType: 'encounter',
 	reward: 'Magikarp',
+	hint: 'Catch 10',
 }, {
 	actionType: 'catch',
 	quest: 'Use 5 Berries to help catch Pokémon',
 	rewardType: 'encounter',
 	reward: 'Lickitung',
+	hint: '5 Berries',
 }, {
 	actionType: 'throw',
 	quest: 'Make 5 Nice Throws',
 	rewardType: 'encounter',
 	reward: 'Voltorb',
+	hint: '5 Nice',
 }, {
 	actionType: 'throw',
 	quest: 'Make 3 Great Throws',
 	rewardType: 'encounter',
 	reward: 'Gastly',
+	hint: '3 Great',
 }, {
 	actionType: 'throw',
 	quest: 'Land a Nice Curveball Throw',
 	rewardType: 'encounter',
 	reward: 'Gastly',
+	hint: 'Nice Curve',
 }, {
 	actionType: 'throw',
 	quest: 'Make 3 Great Throws in a row',
 	rewardType: 'encounter',
 	reward: 'Onix',
+	hint: '3 Great in row',
 }, {
 	actionType: 'throw',
 	quest: 'Make 3 Excellent Throws in a row',
 	rewardType: 'encounter',
 	reward: 'Larvitar',
+	hint: '3 Excellent',
 }, {
 	actionType: 'gym battle',
 	quest: 'Battle in a Gym',
 	rewardType: 'encounter',
 	reward: 'Mankey',
+	hint: 'Gym Battle',
 }, {
 	actionType: 'gym battle',
 	quest: 'Battle in a Gym 5 times',
 	rewardType: 'encounter',
 	reward: 'Machop',
+	hint: '5 Gym',
 }, {
 	actionType: 'gym battle',
 	quest: 'Win a Gym Batte',
@@ -68,16 +79,19 @@ module.exports = [ {
 	quest: 'Win 3 Gym Battes',
 	rewardType: 'encounter',
 	reward: 'Jynx',
+	hint: '3 Gym',
 }, {
 	actionType: 'gym battle',
 	quest: 'Use a supereffective Charged Attack in 7 gym battles',
 	rewardType: 'encounter',
 	reward: 'Electabuzz',
+	hint: '7 Super',
 }, {
 	actionType: 'raid',
-	quest: 'Win a lelve 3 or higher raid',
+	quest: 'Win a level 3 or higher raid',
 	rewardType: 'encounter',
 	reward: 'Dratini',
+	hint: 'Lvl3+ Raid',
 }, {
 	actionType: 'power up',
 	quest: 'Power up Pokémon 5 times',
@@ -88,41 +102,49 @@ module.exports = [ {
 	quest: 'Hatch an Egg',
 	rewardType: 'encounter',
 	reward: 'Exeggcute',
+	hint: 'Hatch 1',
 }, {
 	actionType: 'hatch',
 	quest: 'Hatch 3 Eggs',
 	rewardType: 'encounter',
 	reward: 'Magmar',
+	hint: 'Hatch 3',
 }, {
 	actionType: 'hatch',
 	quest: 'Hatch 5 Eggs',
 	rewardType: 'encounter',
 	reward: 'Chansey',
+	hint: 'Hatch 5',
 }, {
 	actionType: 'evolve',
 	quest: 'Evolve a Pokémon',
 	rewardType: 'encounter',
 	reward: 'Eevee',
+	hint: 'Evolve Any',
 }, {
 	actionType: 'evolve',
 	quest: 'Evolve a Grass-type Pokémon',
 	rewardType: 'encounter',
 	reward: 'Bulbasaur',
+	hint: 'Evolve Grass',
 }, {
 	actionType: 'evolve',
 	quest: 'Evolve a Fire-type Pokémon',
 	rewardType: 'encounter',
 	reward: 'Charmander',
+	hint: 'Evolve Fire',
 }, {
 	actionType: 'evolve',
 	quest: 'Evolve a Water-type Pokémon',
 	rewardType: 'encounter',
 	reward: 'Squirtle',
+	hint: 'Evolve Water',
 }, {
 	actionType: 'evolve',
 	quest: 'Evolve 1 Electric-, Water-, or Fire-type Pokémon',
 	rewardType: 'encounter',
 	reward: 'Eevee',
+	hint: 'Evolve E/W/F',
 } ];
 
 const taskCP = [ {

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Research Map</title>
+		<meta name="viewport" content="initial-scale=1.0">
+		<meta charset="utf-8">
+		<style>
+			#map {
+				height: 100%;
+			}
+			html, body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map"></div>
+		<script>
+			function fetchStops( map, latitude, longitude ) {
+				const center = map.getCenter();
+
+				fetch( '/pgr/map/stops/' + center.lat() + '/' + center.lng(), {} )
+				.then( r => r.json() )
+				.then( stops => {
+					stops.forEach( stop => {
+						const markerOptions = {
+							position: {
+								lat: +stop.latitude,
+								lng: +stop.longitude,
+							},
+							map: map
+						};
+
+						if ( stop.icon ) {
+							markerOptions.icon = `/pgr/icons/${ stop.icon }.png`;
+						}
+
+						var marker = new google.maps.Marker( markerOptions );
+
+						var infowindow = new google.maps.InfoWindow( {
+							content: '<div><h1>' + stop.name + '</h1><img style="width: 72px; height: 72px" src="' + stop.image + '"/>' + (
+								stop.taskQuest ? '<p>' + ( 'Poo' === stop.taskQuest ? 'Something not very interesting' : stop.taskQuest ) + '</p>' : '<p>Not yet checked</p>'
+							) + '</div>',
+						} );
+
+						marker.addListener( 'click', function() {
+							infowindow.open( map, marker );
+						} );
+					} );
+				} );
+			}
+
+			var map;
+			function initMap() {
+				map = new google.maps.Map(document.getElementById('map'), {
+					center: {lat: 49.879117, lng: -97.211551},
+					zoom: 17,
+					styles: [ {
+						featureType: 'poi',
+						stylers: [{visibility: 'off'}]
+					} ],
+				});
+
+				fetchStops( map );
+
+				map.addListener( 'center_changed', function() {
+					fetchStops( map );
+				} );
+			}
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBr_lETqT8zCp0X_TQu1wUs9UWejWoJZpQ&callback=initMap" async defer></script>
+	</body>
+</html>

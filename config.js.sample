@@ -2,4 +2,6 @@ module.exports = {
 	stopsHost: 'http://example.com/',
 	stopsLat: 24.123456,
 	stopsLong: -35.387145,
+	port: 3456,
+	logRequests: false,
 };
