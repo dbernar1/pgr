@@ -18,8 +18,9 @@ const request = require( 'request' );
 const findClosestStops = ( latitude, longitude, limit=3 ) => {
 	return knex.select( 'stops.*', 'stop_tasks.taskQuest', )
 	.from( 'stops' )
-	.joinRaw( 'LEFT JOIN stop_tasks ON stops.id = stop_tasks.stopId AND stop_tasks.id IN ( SELECT MAX( id ) FROM stop_tasks GROUP BY stopId )' )
-	.orderByRaw( 'abs( latitude - ' + latitude + ') + abs( longitude - ' + longitude + ') ASC' )
+	.whereNull( 'deleted_at' )
+	.joinRaw( 'LEFT JOIN stop_tasks ON stops.id = stop_tasks.stopId AND stop_tasks.id IN ( SELECT MAX( id ) FROM stop_tasks WHERE created_at >= ? GROUP BY stopId )', [ moment( 5, 'HH' ).format(), ] )
+	.orderByRaw( 'abs( latitude - ?) + abs( longitude - ?) ASC', [ latitude, longitude, ] )
 	.limit( limit );
 };
 
@@ -34,15 +35,13 @@ api.use( express.static( 'static' ) );
 api.get( '/stops/:latitude/:longitude', ( req, res, next ) => {
 	findClosestStops( req.params.latitude, req.params.longitude )
 	.then( stops => {
-		console.log( stops );
 		res.json( stops )
 	} )
 	.catch( next );
 } );
 
 api.get( '/tasks', ( req, res, next ) => {
-	const singleRewardTasks = tasks.filter( task => 'string' === typeof task.reward );
-	res.json( singleRewardTasks );
+	res.json( tasks );
 } );
 
 api.post( '/tasks', ( req, res, next ) => {
@@ -91,6 +90,14 @@ api.get( '/load-nearby/:latitude/:longitude', ( req, res, next ) => {
 		} )
 		.catch( next );
 	} );
+} );
+
+api.post( '/remove-stop', ( req, res, next ) => {
+	return knex( 'stops' )
+	.where( 'id', req.body.id )
+	.update( { deleted_at: moment().format(), } )
+	.then( () => res.sendStatus( 204 ) )
+	.catch( next );
 } );
 
 api.get( '/map', ( req, res, next ) => {

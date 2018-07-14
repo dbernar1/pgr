@@ -8,7 +8,8 @@ module.exports = [ {
 	actionType: 'catch',
 	quest: 'Catch 5 Pokémon with Weather Boost',
 	rewardType: 'encounter',
-	reward: [ 'Vulpix', 'Poliwag', ],
+	reward: 'VulpixPoliwag2',
+	hint: '5 Boosted',
 }, {
 	actionType: 'catch',
 	quest: 'Catch a Dragon-type Pokémon',
@@ -73,7 +74,8 @@ module.exports = [ {
 	actionType: 'gym battle',
 	quest: 'Win a Gym Batte',
 	rewardType: 'encounter',
-	reward: [ 'Bulbasaur', 'Charmander', 'Squirtle', ],
+	reward: 'Gen1Starter',
+	hint: 'Win Gym',
 }, {
 	actionType: 'gym battle',
 	quest: 'Win 3 Gym Battes',
@@ -96,7 +98,8 @@ module.exports = [ {
 	actionType: 'power up',
 	quest: 'Power up Pokémon 5 times',
 	rewardType: 'encounter',
-	reward: [ 'Bulbasaur', 'Charmander', 'Squirtle', ],
+	reward: 'Gen1Starter',
+	hint: 'Power up 5',
 }, {
 	actionType: 'hatch',
 	quest: 'Hatch an Egg',
