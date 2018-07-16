@@ -84,7 +84,7 @@
 
 				fetchStops( map );
 
-				map.addListener( 'center_changed', function() {
+				map.addListener( 'idle', function() {
 					fetchStops( map );
 				} );
 			}
