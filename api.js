@@ -1,4 +1,4 @@
-const { port, logRequests, stopsHost, utcOffsetInMinutes, } = require( './config.js' );
+const { port, logRequests, stopsHost, utcOffsetInMinutes, numStopsToLoadOnMap, } = require( './config.js' );
 const express = require( 'express' );
 const api = express();
 const tasks = require( './tasks' );
@@ -105,7 +105,7 @@ api.get( '/map', ( req, res, next ) => {
 } );
 
 api.get( '/map/stops/:latitude/:longitude', ( req, res, next ) => {
-	findClosestStops( req.params.latitude, req.params.longitude, 30 )
+	findClosestStops( req.params.latitude, req.params.longitude, numStopsToLoadOnMap )
 	.then( stops => {
 		res.json( stops.map( stop => {
 			return extend( {}, stop, {
