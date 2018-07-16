@@ -44,7 +44,7 @@
 						var marker = new google.maps.Marker( markerOptions );
 
 						var infowindow = new google.maps.InfoWindow( {
-							content: '<div><h1><a style="color: black;" href="?latitude=' + stop.latitude + '&longitude=' + stop.longitude + '">' + stop.name + '</a></h1><img style="width: 72px; height: 72px" src="' + stop.image + '"/>' + (
+							content: '<div><h1><a style="color: black;" href="?latitude=' + stop.latitude + '&longitude=' + stop.longitude + '">' + stop.name + '</a></h1><img style="width: 72px; height: 72px" src="' + stop.image.replace( 'http', 'https' ) + '"/>' + (
 								stop.taskQuest ? '<p>' + ( 'Poo' === stop.taskQuest ? 'Something not very interesting' : stop.taskQuest ) + '</p>' : '<p>Not yet checked</p>'
 							) + '</div>',
 						} );

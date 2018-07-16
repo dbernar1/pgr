@@ -1,4 +1,4 @@
-const { port, logRequests, stopsHost, } = require( './config.js' );
+const { port, logRequests, stopsHost, utcOffsetInMinutes, } = require( './config.js' );
 const express = require( 'express' );
 const api = express();
 const tasks = require( './tasks' );
@@ -19,7 +19,7 @@ const findClosestStops = ( latitude, longitude, limit=3 ) => {
 	return knex.select( 'stops.*', 'stop_tasks.taskQuest', )
 	.from( 'stops' )
 	.whereNull( 'deleted_at' )
-	.joinRaw( 'LEFT JOIN stop_tasks ON stops.id = stop_tasks.stopId AND stop_tasks.id IN ( SELECT MAX( id ) FROM stop_tasks WHERE created_at >= ? GROUP BY stopId )', [ moment( 5, 'HH' ).format(), ] )
+	.joinRaw( 'LEFT JOIN stop_tasks ON stops.id = stop_tasks.stopId AND stop_tasks.id IN ( SELECT MAX( id ) FROM stop_tasks WHERE created_at >= ? GROUP BY stopId )', [ moment().utcOffset( utcOffsetInMinutes ).format( 'YYYY-MM-DD' )+ 'T05:00:00+00:00' ] )
 	.orderByRaw( 'abs( latitude - ?) + abs( longitude - ?) ASC', [ latitude, longitude, ] )
 	.limit( limit );
 };
@@ -120,6 +120,15 @@ api.get( '/map/stops/:latitude/:longitude', ( req, res, next ) => {
 	} )
 	.catch( next );
 
+} );
+
+api.post( '/remove-reported-task', ( req, res, next ) => {
+	return knex( 'stop_tasks' )
+	.where( 'stopId', req.body.id )
+	.andWhere( knex.raw(
+	'id = ( SELECT MAX( id ) FROM stop_tasks WHERE id = stop_tasks.id )' ) )
+	.delete()
+	.then( () => res.sendStatus( 204 ) );
 } );
 
 api.listen( port, () => {

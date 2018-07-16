@@ -4,4 +4,5 @@ module.exports = {
 	stopsLong: -35.387145,
 	port: 3456,
 	logRequests: false,
+	utcOffsetInMinutes: 0,
 };
