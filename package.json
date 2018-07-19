@@ -7,17 +7,22 @@
   "scripts": {
     "start": "nodemon api.js",
     "db:make-mig": "NODE_ENV=production knex migrate:make",
-    "db:migrate": "NODE_ENV=production knex migrate:latest"
+    "db:migrate": "NODE_ENV=production knex migrate:latest",
+    "test:migrate": "NODE_ENV=test knex migrate:latest",
+    "test": "mocha"
   },
   "dependencies": {
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
+    "chai": "^4.1.2",
     "express": "^4.16.3",
     "knex": "^0.15.0",
+    "mocha": "^5.2.0",
     "moment": "^2.22.2",
     "morgan": "^1.9.0",
     "request": "^2.87.0",
     "sqlite3": "^4.0.1",
+    "supertest": "^3.1.0",
     "underscore": "^1.9.1"
   },
   "devDependencies": {
