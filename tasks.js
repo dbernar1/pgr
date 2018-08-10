@@ -1,9 +1,45 @@
 module.exports = [ {
 	actionType: 'catch',
-	quest: 'Catch 3 Grass-, Water-, or Fire-type Pokémon',
+	quest: 'Catch 5 Electric-type Pokémon',
 	rewardType: 'encounter',
-	reward: 'Pikachu',
-	hint: 'Catch 3 G/W/F'
+	reward: 'Mareep',
+	hint: '5 Electric',
+}, {
+	actionType: 'catch',
+	quest: 'Catch a Meowth or Growlithe',
+	rewardType: 'encounter',
+	reward: 'Electrike',
+	hint: 'Meowth/Growl',
+}, {
+	actionType: 'catch',
+	quest: 'Catch a Skitty or Poochyena',
+	rewardType: 'encounter',
+	reward: 'Snubbull',
+	hint: 'Skitty/Pooch',
+}, {
+	actionType: 'throw',
+	quest: 'Make 3 Curveball Throws in a row',
+	rewardType: 'encounter',
+	reward: 'Spinda',
+	hint: '3 Curve in row',
+}, {
+	actionType: 'evolve',
+	quest: 'Evolve a Meowth',
+	rewardType: 'encounter',
+	reward: 'Houndour',
+	hint: 'Evolve Meowth',
+}, {
+	actionType: 'transfer',
+	quest: 'Transfer 10 Pokémon',
+	rewardType: 'encounter',
+	reward: 'Misdreavus',
+	hint: 'Transfer 10',
+}, {
+	actionType: 'throw',
+	quest: 'Make 5 Nice Throws',
+	rewardType: 'encounter',
+	reward: 'Voltorb',
+	hint: '5 Nice',
 }, {
 	actionType: 'catch',
 	quest: 'Catch 5 Pokémon with Weather Boost',
@@ -11,11 +47,11 @@ module.exports = [ {
 	reward: 'VulpixPoliwag2',
 	hint: '5 Boosted',
 }, {
-	actionType: 'catch',
-	quest: 'Catch a Dragon-type Pokémon',
+	actionType: 'throw',
+	quest: 'Make 3 Great Throws',
 	rewardType: 'encounter',
-	reward: 'Dratini',
-	hint: 'Catch Drag',
+	reward: 'Gastly',
+	hint: '3 Great',
 }, {
 	actionType: 'catch',
 	quest: 'Catch 10 Pokémon',
@@ -26,32 +62,20 @@ module.exports = [ {
 	actionType: 'catch',
 	quest: 'Use 5 Berries to help catch Pokémon',
 	rewardType: 'encounter',
-	reward: 'Lickitung',
+	reward: 'Girafarig',
 	hint: '5 Berries',
-}, {
-	actionType: 'throw',
-	quest: 'Make 5 Nice Throws',
-	rewardType: 'encounter',
-	reward: 'Voltorb',
-	hint: '5 Nice',
-}, {
-	actionType: 'throw',
-	quest: 'Make 3 Great Throws',
-	rewardType: 'encounter',
-	reward: 'Gastly',
-	hint: '3 Great',
-}, {
-	actionType: 'throw',
-	quest: 'Land a Nice Curveball Throw',
-	rewardType: 'encounter',
-	reward: 'Gastly',
-	hint: 'Nice Curve',
 }, {
 	actionType: 'throw',
 	quest: 'Make 3 Great Throws in a row',
 	rewardType: 'encounter',
 	reward: 'Onix',
 	hint: '3 Great in row',
+}, {
+	actionType: 'catch',
+	quest: 'Catch a Dragon-type Pokémon',
+	rewardType: 'encounter',
+	reward: 'Dratini',
+	hint: 'Catch Drag',
 }, {
 	actionType: 'throw',
 	quest: 'Make 3 Excellent Throws in a row',
@@ -89,12 +113,6 @@ module.exports = [ {
 	reward: 'Electabuzz',
 	hint: '7 Super',
 }, {
-	actionType: 'raid',
-	quest: 'Win a level 3 or higher raid',
-	rewardType: 'encounter',
-	reward: 'Dratini',
-	hint: 'Lvl3+ Raid',
-}, {
 	actionType: 'power up',
 	quest: 'Power up Pokémon 5 times',
 	rewardType: 'encounter',
@@ -104,7 +122,7 @@ module.exports = [ {
 	actionType: 'hatch',
 	quest: 'Hatch an Egg',
 	rewardType: 'encounter',
-	reward: 'Exeggcute',
+	reward: 'HatchEgg',
 	hint: 'Hatch 1',
 }, {
 	actionType: 'hatch',
@@ -124,30 +142,6 @@ module.exports = [ {
 	rewardType: 'encounter',
 	reward: 'Eevee',
 	hint: 'Evolve Any',
-}, {
-	actionType: 'evolve',
-	quest: 'Evolve a Grass-type Pokémon',
-	rewardType: 'encounter',
-	reward: 'Bulbasaur',
-	hint: 'Evolve Grass',
-}, {
-	actionType: 'evolve',
-	quest: 'Evolve a Fire-type Pokémon',
-	rewardType: 'encounter',
-	reward: 'Charmander',
-	hint: 'Evolve Fire',
-}, {
-	actionType: 'evolve',
-	quest: 'Evolve a Water-type Pokémon',
-	rewardType: 'encounter',
-	reward: 'Squirtle',
-	hint: 'Evolve Water',
-}, {
-	actionType: 'evolve',
-	quest: 'Evolve 1 Electric-, Water-, or Fire-type Pokémon',
-	rewardType: 'encounter',
-	reward: 'Eevee',
-	hint: 'Evolve E/W/F',
 } ];
 
 const taskCP = [ {
