@@ -76,8 +76,8 @@ api.get( '/load-nearby/:latitude/:longitude', ( req, res, next ) => {
 			if ( newStops.length > 0 ) {
 				const setsOfOneHundredNewStops = [];
 
-				while ( setsOfOneHundredNewStops.length ) {
-					setsOfOneHundredNewStops.push( array.splice( 0, 100 ) );
+				while ( newStops.length ) {
+					setsOfOneHundredNewStops.push( newStops.splice( 0, 100 ) );
 				}
 
 				return Promise.mapSeries(
